@@ -1,21 +1,21 @@
 package com.library.library_rest.controller;
 
-import com.library.library_rest.BookService;
+import com.library.library_rest.service.BookService;
 import com.library.library_rest.model.Book;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
-@RestController
 @RequestMapping("api/books")
+@RestController
+@AllArgsConstructor
 @Tag(name ="Book")
 public class BookController {
-    @Autowired
-    private BookService bookService;
+
+    private final BookService bookService;
 
     @Operation(summary = "Retrieve all books", description = "Endpoint for fetching all books",
             responses = {
