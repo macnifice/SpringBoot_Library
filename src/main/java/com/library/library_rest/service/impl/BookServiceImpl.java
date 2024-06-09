@@ -2,7 +2,7 @@ package com.library.library_rest.service.impl;
 
 import com.library.library_rest.model.Book;
 import com.library.library_rest.repository.BookRepository;
-import com.library.library_rest.service.BookService;
+import com.library.library_rest.service.IBookService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @Service
-public class BookServiceImpl implements BookService {
+public class BookServiceImpl implements IBookService {
 
     private final BookRepository bookRepository;
 

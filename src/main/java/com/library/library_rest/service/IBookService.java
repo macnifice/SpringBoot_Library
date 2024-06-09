@@ -1,10 +1,8 @@
 package com.library.library_rest.service;
 import com.library.library_rest.model.Book;
-import org.springframework.stereotype.Service;
 import java.util.List;
 
-@Service
-public interface BookService {
+public interface IBookService {
 
     List<Book> getAllBooks();
 

@@ -20,7 +20,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class BookServiceTest {
+public class IBookServiceTest {
 
     @Mock
     private BookRepository bookRepository;
