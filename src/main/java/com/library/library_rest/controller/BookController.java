@@ -1,7 +1,7 @@
 package com.library.library_rest.controller;
 
 
-import com.library.library_rest.model.Book;
+import com.library.library_rest.DTO.BookDTO;
 import com.library.library_rest.service.IBookService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -26,7 +26,7 @@ public class BookController {
                     @ApiResponse(description = "Internal Server Error", responseCode = "500")
             })
     @GetMapping
-    public List<Book> getAllBooks() {
+    public List<BookDTO> getAllBooks() {
         return bookService.getAllBooks();
     }
 
@@ -38,8 +38,8 @@ public class BookController {
                     @ApiResponse(description = "Internal Server Error", responseCode = "500")
             })
     @PostMapping
-    public Book createBook(@RequestBody Book book) {
-        return bookService.createBook(book);
+    public BookDTO createBook(@RequestBody BookDTO bookDTO) {
+        return bookService.createBook(bookDTO);
     }
 
     @Operation(summary = "Retrieve a book by ID", description = "Endpoint for fetching a book by its ID",
@@ -50,7 +50,7 @@ public class BookController {
                     @ApiResponse(description = "Internal Server Error", responseCode = "500")
             })
     @GetMapping("{id}")
-    public Book getBook(@PathVariable("id") long id) {
+    public BookDTO getBook(@PathVariable("id") long id) {
         return bookService.getBookById(id);
     }
 
@@ -63,8 +63,8 @@ public class BookController {
                     @ApiResponse(description = "Internal Server Error", responseCode = "500")
             })
     @PutMapping
-    public Book updateBook(@RequestBody Book book) {
-        return bookService.updateBook(book);
+    public BookDTO updateBook(@RequestBody BookDTO bookDTO) {
+        return bookService.updateBook(bookDTO);
     }
 
     @Operation(summary = "Delete a book by ID", description = "Endpoint for deleting a book by its ID",

@@ -15,7 +15,7 @@ import java.util.Optional;
 public class BookRepositoryTest {
 
     @Autowired
-    private BookRepository bookRepository;
+    private IBookRepository ibookRepository;
     private Book book;
 
     @BeforeEach
@@ -29,9 +29,9 @@ public class BookRepositoryTest {
     @Test
     void testFindAll() {
         //Given
-        bookRepository.save(book);
+        ibookRepository.save(book);
         //When
-        List<Book> books = bookRepository.findAll();
+        List<Book> books = ibookRepository.findAll();
 
         //Then
         Assertions.assertThat(books).isNotNull();
@@ -48,7 +48,7 @@ public class BookRepositoryTest {
 //                .isbn("isbn")
 //                .build();
         //When
-        Book saveBook = bookRepository.save(book);
+        Book saveBook = ibookRepository.save(book);
 
         //Then
         Assertions.assertThat(saveBook).isNotNull();
@@ -59,13 +59,13 @@ public class BookRepositoryTest {
     @Test
     void testUpdateBook() {
         //Given
-        bookRepository.save(book);
+        ibookRepository.save(book);
 
         //When
         book.setTitle("Title 1");
         book.setAuthor("Author 1");
         book.setIsbn("Isbn 1");
-        Book updateBook = bookRepository.save(book);
+        Book updateBook = ibookRepository.save(book);
 
         Assertions.assertThat(updateBook.getTitle()).isEqualTo("Title 1");
         Assertions.assertThat(updateBook.getAuthor()).isEqualTo("Author 1");
@@ -77,9 +77,9 @@ public class BookRepositoryTest {
     @Test
     void testFindById() {
         //Given
-        bookRepository.save(book);
+        ibookRepository.save(book);
         //When
-        Book getBook = bookRepository.findById(book.getId()).get();
+        Book getBook = ibookRepository.findById(book.getId()).get();
 
         //Then
         Assertions.assertThat(getBook).isNotNull();
@@ -88,11 +88,11 @@ public class BookRepositoryTest {
     @Test
     void testDeleteBook() {
         //Given
-        bookRepository.save(book);
+        ibookRepository.save(book);
 
         //When
-        bookRepository.deleteById(book.getId());
-        Optional<Book> bookOptional = bookRepository.findById(book.getId());
+        ibookRepository.deleteById(book.getId());
+        Optional<Book> bookOptional = ibookRepository.findById(book.getId());
         //Then
         Assertions.assertThat(bookOptional).isEmpty();
     }

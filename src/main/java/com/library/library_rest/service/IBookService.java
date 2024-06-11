@@ -1,16 +1,16 @@
 package com.library.library_rest.service;
-import com.library.library_rest.model.Book;
+import com.library.library_rest.DTO.BookDTO;
 import java.util.List;
 
 public interface IBookService {
 
-    List<Book> getAllBooks();
+    List<BookDTO> getAllBooks();
 
-    Book createBook(Book book);
+    BookDTO createBook(BookDTO bookDTO);
 
-    Book getBookById(long id);
+    BookDTO getBookById(long id);
 
-    Book updateBook(Book book);
+    BookDTO updateBook(BookDTO bookDTO);
 
     void deleteBook(long id);
 
